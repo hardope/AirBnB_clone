@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""This is the base model class for AirBnB"""
+"""This is the base model class for AirBnB project"""
 import uuid
 from datetime import datetime
 
+import models
+
 class BaseModel:
-     """This class will defines all common attributes/methods
+     """BaseModel Class:
+     This class will defines all common attributes/methods
      for other classes
      """
      def __init__(self, *args, **kwargs):
@@ -32,6 +35,7 @@ class BaseModel:
           else:
                self.id = str(uuid.uuid4())
                self.created_at = self.updated_at = datetime.now()
+               models.storage.new(self)
 
      def __str__(self):
           """String Representation of data in each object
@@ -43,6 +47,7 @@ class BaseModel:
           """updates the public instance attribute updated_at to current time
           """
           self.updated_at = datetime.now()
+          models.storage.save()
 
      def to_dict(self):
           """creates dictionary of the class  and returns
