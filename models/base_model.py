@@ -14,7 +14,7 @@ class BaseModel:
           """Initialize Base class Model with provided information
           Args:
                args: it won't be used
-               kwargs: arguments for the constructor of the BaseModel
+               kwargs: arguments for the constructor of the BaseModel 
           Attributes:
                id: unique id generated
                created_at: creation date
